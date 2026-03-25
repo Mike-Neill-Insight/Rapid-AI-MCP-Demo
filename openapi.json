@@ -1,0 +1,67 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Rapid AI MCP Demo",
+    "description": "MCP Server for Copilot Studio — provides customer/order tools, resources, and prompts via Streamable HTTP transport.",
+    "version": "1.0.0"
+  },
+  "host": "YOUR-HOST-HERE.azurecontainerapps.io",
+  "basePath": "/",
+  "schemes": ["https"],
+  "consumes": ["application/json"],
+  "produces": ["application/json", "text/event-stream"],
+  "paths": {
+    "/mcp": {
+      "post": {
+        "x-ms-agentic-protocol": "mcp-streamable-1.0",
+        "operationId": "McpStreamableTransport",
+        "summary": "MCP Streamable HTTP endpoint",
+        "description": "Handles MCP JSON-RPC requests via Streamable HTTP. Copilot Studio sends tool calls, resource reads, and prompt requests through this endpoint.",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Accept",
+            "type": "string",
+            "required": true,
+            "default": "application/json, text/event-stream",
+            "description": "Must accept both JSON and SSE responses"
+          },
+          {
+            "in": "header",
+            "name": "Content-Type",
+            "type": "string",
+            "required": true,
+            "default": "application/json",
+            "description": "Request body is JSON-RPC"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "MCP JSON-RPC request payload",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "jsonrpc": { "type": "string", "example": "2.0" },
+                "id": { "type": "integer", "example": 1 },
+                "method": { "type": "string", "example": "initialize" },
+                "params": { "type": "object" }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "MCP JSON-RPC response (may be SSE stream or JSON)"
+          },
+          "400": {
+            "description": "Missing session ID on non-initialize request"
+          },
+          "404": {
+            "description": "Session not found or expired"
+          }
+        }
+      }
+    }
+  }
+}

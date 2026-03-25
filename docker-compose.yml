@@ -1,0 +1,7 @@
+services:
+  mcp-server:
+    build: .
+    ports:
+      - "3100:3100"
+    environment:
+      - PORT=3100
