@@ -9,7 +9,7 @@
 AI assistants are powerful but isolated. They can't access your company's data, APIs, or systems without custom integrations — and every AI platform has its own plugin format:
 
 - Copilot Studio has connectors
-- ChatGPT has plugins (now GPTs)
+- ChatGPT has Actions (formerly plugins/GPTs)
 - Claude has tool use
 - VS Code has extensions
 
@@ -23,7 +23,7 @@ Think of it like USB for AI — a standard interface that works everywhere.
 
 ## The Three Primitives
 
-MCP defines three types of capabilities a server can expose:
+MCP defines three types of capabilities a server can expose. (The protocol also defines client-side primitives — **Sampling**, **Elicitation**, and **Logging** — but these are provided by the AI client, not your server code.)
 
 ### 🔧 Tools — Actions the AI Can Perform
 
@@ -107,14 +107,20 @@ MCP uses **Streamable HTTP** as the transport:
 
 ## MCP + Copilot Studio
 
-Microsoft Copilot Studio connects to MCP servers through **custom connectors**. The flow:
+Microsoft Copilot Studio connects to MCP servers in two ways:
+
+**Option A — MCP Onboarding Wizard (Recommended)**
+
+Copilot Studio provides a built-in MCP onboarding wizard that walks you through connecting to an MCP server directly from the agent editor. This is the simplest path.
+
+**Option B — Custom Connector**
 
 1. You deploy your MCP server (locally with a tunnel, or to Azure)
 2. You create an OpenAPI spec describing the `/mcp` endpoint
-3. You import the spec as a custom connector in Copilot Studio
+3. You import the spec as a custom connector in Copilot Studio (or via Power Apps)
 4. Copilot Studio discovers your tools and resources and uses them in conversations
 
-The key requirement is the `x-ms-agentic-protocol: mcp-streamable-1.0` marker in your OpenAPI spec — this tells Copilot Studio "this isn't a regular API, it speaks MCP."
+The key requirement for the custom connector approach is the `x-ms-agentic-protocol: mcp-streamable-1.0` marker in your OpenAPI spec — this tells Copilot Studio "this isn't a regular API, it speaks MCP."
 
 ## Learn More
 
