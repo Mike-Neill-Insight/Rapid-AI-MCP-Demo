@@ -1,6 +1,6 @@
 # Exercise Cheat Sheets
 
-> ⚠️ **SPOILER WARNING**: These files contain complete solutions for the exercises in [exercises.md](../exercises.md). Try the exercises yourself first!
+> ⚠️ **SPOILER WARNING**: These files contain complete solutions for the exercises in [07-exercises.md](../07-exercises.md). Try the exercises yourself first!
 
 ## Solutions
 

@@ -1,8 +1,8 @@
 # Local Development
 
-> **Prerequisites**: [What is MCP?](what-is-mcp.md)
+> **Prerequisites**: [What is MCP?](01-what-is-mcp.md)
 >
-> **Next**: [Testing](testing.md)
+> **Next**: [Testing](04-testing.md)
 
 ## Getting Started
 

@@ -2,7 +2,7 @@
 
 > **Prerequisites**: None — this is the starting point.
 >
-> **Next**: [Architecture & Data Flow](architecture.md)
+> **Next**: [Architecture & Data Flow](02-architecture.md)
 
 ## The Problem
 

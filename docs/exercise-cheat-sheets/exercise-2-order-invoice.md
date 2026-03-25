@@ -1,6 +1,6 @@
 # Exercise 2: `order://{orderId}/invoice` Resource — Solution
 
-> ⚠️ **Spoiler**: Try the exercise in [exercises.md](../exercises.md) first!
+> ⚠️ **Spoiler**: Try the exercise in [07-exercises.md](../07-exercises.md) first!
 
 ## Important: The `resource_link` Pattern
 

@@ -1,6 +1,6 @@
 # Exercises
 
-> **Prerequisites**: Completed the [Learning Path](../README.md#learning-path) through step 4 (Testing)
+> **Prerequisites**: Completed the [Learning Path](../README.md#learning-path) through step 5 (Testing)
 >
 > **These exercises help you internalize MCP patterns by extending the demo server.**
 >

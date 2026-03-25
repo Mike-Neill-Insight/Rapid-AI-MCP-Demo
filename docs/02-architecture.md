@@ -1,8 +1,8 @@
 # Architecture & Data Flow
 
-> **Prerequisites**: [What is MCP?](what-is-mcp.md)
+> **Prerequisites**: [What is MCP?](01-what-is-mcp.md)
 >
-> **Next**: Explore the code starting at [src/server.ts](../src/server.ts), then [Testing](testing.md)
+> **Next**: [Code Walkthrough](03a-code-walkthrough.md), then [Testing](04-testing.md)
 
 ## System Overview
 

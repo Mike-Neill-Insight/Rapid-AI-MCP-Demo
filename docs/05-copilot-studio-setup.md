@@ -1,8 +1,8 @@
 # Connecting to Copilot Studio
 
-> **Prerequisites**: [Testing](testing.md) — verify your server works locally first
+> **Prerequisites**: [Testing](04-testing.md) — verify your server works locally first
 >
-> **Next**: [Azure Deployment](azure-deployment.md) (for production) or [Exercises](exercises.md) (to extend the server)
+> **Next**: [Azure Deployment](06-azure-deployment.md) (for production) or [Exercises](07-exercises.md) (to extend the server)
 >
 > **Source**: [Microsoft official MCP lab](https://microsoft.github.io/pp-mcp/labs/mcs-mcp/) | [MS Learn — Add MCP to agent](https://learn.microsoft.com/en-us/microsoft-copilot-studio/mcp-add-components-to-agent)
 

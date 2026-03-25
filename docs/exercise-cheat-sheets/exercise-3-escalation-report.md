@@ -1,6 +1,6 @@
 # Exercise 3: `escalation-report` Prompt — Solution
 
-> ⚠️ **Spoiler**: Try the exercise in [exercises.md](../exercises.md) first!
+> ⚠️ **Spoiler**: Try the exercise in [07-exercises.md](../07-exercises.md) first!
 
 ## `src/prompts/escalation-report.ts`
 

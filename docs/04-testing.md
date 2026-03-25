@@ -1,8 +1,8 @@
 # Testing Your MCP Server
 
-> **Prerequisites**: [Architecture](architecture.md), server running (`npm run dev`)
+> **Prerequisites**: [Architecture](02-architecture.md), server running (`npm run dev`)
 >
-> **Next**: [Copilot Studio Setup](copilot-studio-setup.md)
+> **Next**: [Copilot Studio Setup](05-copilot-studio-setup.md)
 
 ## Quick Health Check
 

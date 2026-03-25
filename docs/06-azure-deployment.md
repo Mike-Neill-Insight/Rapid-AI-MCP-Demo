@@ -1,8 +1,8 @@
 # Azure Deployment
 
-> **Prerequisites**: [Testing](testing.md), [Local Development](local-development.md)
+> **Prerequisites**: [Testing](04-testing.md), [Local Development](03-local-development.md)
 >
-> **Next**: [Copilot Studio Setup](copilot-studio-setup.md) (if not done), [Exercises](exercises.md)
+> **Next**: [Copilot Studio Setup](05-copilot-studio-setup.md) (if not done), [Exercises](07-exercises.md)
 
 ## Overview
 
@@ -116,7 +116,7 @@ Update `openapi.json` with your Container Apps URL:
 }
 ```
 
-Then follow the [Copilot Studio Setup](copilot-studio-setup.md) guide to create the connector.
+Then follow the [Copilot Studio Setup](05-copilot-studio-setup.md) guide to create the connector.
 
 ## Cleanup
 

@@ -1,6 +1,6 @@
 # Exercise 1: `get-order-details` Tool — Solution
 
-> ⚠️ **Spoiler**: Try the exercise in [exercises.md](../exercises.md) first!
+> ⚠️ **Spoiler**: Try the exercise in [07-exercises.md](../07-exercises.md) first!
 
 ## `src/tools/get-order-details.ts`
 

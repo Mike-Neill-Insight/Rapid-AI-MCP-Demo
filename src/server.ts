@@ -299,7 +299,7 @@ app.listen(PORT, '127.0.0.1', () => {
 ║  Next steps:                                                 ║
 ║  1. Test with MCP Inspector: npm run inspect                 ║
 ║  2. Expose via tunnel for Copilot Studio                     ║
-║     See docs/local-development.md                            ║
+║     See docs/03-local-development.md                         ║
 ║                                                              ║
 ╚══════════════════════════════════════════════════════════════╝
   `);

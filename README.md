@@ -40,13 +40,14 @@ Read these in order for the best learning experience:
 
 | # | What | Where | Time |
 |---|------|-------|------|
-| 1 | **What is MCP?** — conceptual overview | [docs/what-is-mcp.md](docs/what-is-mcp.md) | 10 min |
-| 2 | **Architecture** — how requests flow | [docs/architecture.md](docs/architecture.md) | 5 min |
-| 3 | **Explore the code** — start at the entry point | [src/server.ts](src/server.ts) | 15 min |
-| 4 | **Test locally** — verify with MCP Inspector | [docs/testing.md](docs/testing.md) | 10 min |
-| 5 | **Connect to Copilot Studio** | [docs/copilot-studio-setup.md](docs/copilot-studio-setup.md) | 15 min |
-| 6 | **Deploy to Azure** | [docs/azure-deployment.md](docs/azure-deployment.md) | 20 min |
-| 7 | **Exercises** — build your own extensions | [docs/exercises.md](docs/exercises.md) | 30+ min |
+| 1 | **What is MCP?** — conceptual overview | [docs/01-what-is-mcp.md](docs/01-what-is-mcp.md) | 10 min |
+| 2 | **Architecture** — how requests flow | [docs/02-architecture.md](docs/02-architecture.md) | 5 min |
+| 3a | **Code walkthrough** — annotated source tour | [docs/03a-code-walkthrough.md](docs/03a-code-walkthrough.md) | 20 min |
+| 3 | **Local development** — setup, ports, tunnels | [docs/03-local-development.md](docs/03-local-development.md) | 5 min |
+| 4 | **Test locally** — verify with MCP Inspector | [docs/04-testing.md](docs/04-testing.md) | 10 min |
+| 5 | **Connect to Copilot Studio** | [docs/05-copilot-studio-setup.md](docs/05-copilot-studio-setup.md) | 15 min |
+| 6 | **Deploy to Azure** | [docs/06-azure-deployment.md](docs/06-azure-deployment.md) | 20 min |
+| 7 | **Exercises** — build your own extensions | [docs/07-exercises.md](docs/07-exercises.md) | 30+ min |
 
 ## Project Structure
 
