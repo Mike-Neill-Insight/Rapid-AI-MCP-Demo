@@ -7,9 +7,9 @@
  * │ a user asks "show me all pending orders" or "what orders does       │
  * │ customer cust-002 have?"                                            │
  * │                                                                     │
- * │ Multiple optional filters demonstrate that MCP tools can have       │
- * │ complex, flexible input schemas — the AI picks which filters to     │
- * │ fill based on the user's natural language request.                  │
+ * │ All filters are optional — calling with no parameters returns       │
+ * │ every order. The AI picks which filters to fill based on the        │
+ * │ user's natural language request.                                    │
  * └─────────────────────────────────────────────────────────────────────┘
  *
  * Input schema design notes:
@@ -19,12 +19,6 @@
  *   which tells the AI exactly which statuses are valid. Without an enum,
  *   the AI might guess "processing" or "completed" — values that don't
  *   exist in our system. Enums eliminate that guesswork.
- *
- * - The `minTotal` / `maxTotal` fields use a `z.preprocess → z.coerce`
- *   pattern because they are optional numbers. A naive `z.coerce.number()
- *   .optional()` has a subtle bug: it coerces `null`, `""`, and `undefined`
- *   to `0` instead of leaving them absent. The preprocess step intercepts
- *   those "empty" values and maps them to `undefined` before coercion runs.
  *
  * Tool annotations:
  * - readOnlyHint: true — search is a read-only operation
@@ -43,18 +37,6 @@ const inputSchema = z.object({
     .string()
     .optional()
     .describe('Filter by customer ID (e.g., "cust-001")'),
-  minTotal: z
-    .preprocess(
-      (val) => (val === null || val === undefined || val === '' ? undefined : val),
-      z.coerce.number().optional()
-    )
-    .describe('Minimum order total (inclusive)'),
-  maxTotal: z
-    .preprocess(
-      (val) => (val === null || val === undefined || val === '' ? undefined : val),
-      z.coerce.number().optional()
-    )
-    .describe('Maximum order total (inclusive)'),
 });
 
 const outputSchema = z.object({
@@ -77,7 +59,7 @@ export function registerSearchOrdersTool(server: McpServer) {
     {
       title: 'Search Orders',
       description:
-        'Search and filter orders by status, customer, or total amount. Returns matching orders with summary info.',
+        'Search and filter orders by status or customer. All filters are optional — omit all to return every order.',
       inputSchema,
       outputSchema,
       annotations: {

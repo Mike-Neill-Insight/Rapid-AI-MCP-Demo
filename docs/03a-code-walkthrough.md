@@ -174,22 +174,17 @@ This tells the AI: "there's more data available at this URI if you need it." The
 
 ## 5. Search with Filters — `src/tools/search-orders.ts`
 
-Demonstrates a tool with multiple optional parameters. The AI decides which filters to apply based on the user's natural language request.
+Demonstrates a tool with multiple optional parameters. All filters are optional — calling with no parameters returns every order. The AI decides which filters to apply based on the user's natural language request.
 
 ### Key concepts
 
 **Zod `z.enum()`** — The `status` field uses an enum instead of a free-form string. The enum values appear in the tool's JSON Schema, which tells the AI exactly which statuses are valid. Without this, the AI might guess "processing" or "completed" — values that don't exist in the system.
 
-**`z.preprocess` for optional numbers** — The `minTotal` and `maxTotal` fields demonstrate a subtle Zod pattern:
-
-```typescript
-minTotal: z.preprocess(
-  (val) => (val === null || val === undefined || val === '' ? undefined : val),
-  z.coerce.number().optional()
-)
-```
-
-Why not just `z.coerce.number().optional()`? Because `z.coerce.number()` converts `null`, `""`, and `undefined` to `0` — which would mean "filter by minimum total of $0" instead of "no minimum filter." The `preprocess` step intercepts these empty values and maps them to `undefined` before coercion, preserving the "not specified" semantics.
+**All-optional inputs** — Every parameter is `.optional()`, making the tool flexible:
+- "Show me all orders" → no params
+- "Show pending orders" → `{ status: "pending" }`
+- "What orders does cust-002 have?" → `{ customerId: "cust-002" }`
+- "Show pending orders for cust-001" → both filters
 
 ---
 

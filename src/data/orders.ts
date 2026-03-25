@@ -155,14 +155,10 @@ export function getOrdersByCustomerId(customerId: string): Order[] {
 export function searchOrders(filters: {
   status?: OrderStatus;
   customerId?: string;
-  minTotal?: number;
-  maxTotal?: number;
 }): Order[] {
   return orders.filter((o) => {
     if (filters.status && o.status !== filters.status) return false;
     if (filters.customerId && o.customerId !== filters.customerId) return false;
-    if (filters.minTotal !== undefined && o.total < filters.minTotal) return false;
-    if (filters.maxTotal !== undefined && o.total > filters.maxTotal) return false;
     return true;
   });
 }
