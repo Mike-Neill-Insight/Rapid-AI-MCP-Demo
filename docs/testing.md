@@ -36,7 +36,8 @@ The Inspector will open in your browser.
 ### Connecting to Your Server
 
 1. In the Inspector, select **"Streamable HTTP"** as the transport type
-2. Enter the URL: `http://localhost:3100/mcp`
+2. **Important**: Enter your MCP server URL: `http://localhost:3100/mcp`
+   - ⚠️ Do NOT use the Inspector's own URL (`localhost:6274`) — that's the Inspector UI, not your server
 3. Click **Connect**
 4. You should see the server's capabilities listed
 
