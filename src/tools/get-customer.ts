@@ -31,7 +31,6 @@ const inputSchema = z.object({
     .describe('Customer ID (e.g., "cust-001"). Provide either this or email.'),
   email: z
     .string()
-    .email()
     .optional()
     .describe('Customer email address. Provide either this or customerId.'),
 });

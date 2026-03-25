@@ -30,11 +30,11 @@ const inputSchema = z.object({
     .optional()
     .describe('Filter by customer ID (e.g., "cust-001")'),
   minTotal: z
-    .number()
+    .coerce.number()
     .optional()
     .describe('Minimum order total (inclusive)'),
   maxTotal: z
-    .number()
+    .coerce.number()
     .optional()
     .describe('Maximum order total (inclusive)'),
 });

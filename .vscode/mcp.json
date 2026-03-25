@@ -1,0 +1,14 @@
+{
+  "servers": {
+    "rapid-ai": {
+      "type": "http",
+      "url": "http://localhost:3100/mcp",
+      "description": "Local Rapid AI MCP server (HTTP). Start separately with `npm run dev` or use the 'rapid-ai-dev' entry to run it from VS Code."
+    },
+    "rapid-ai-dev": {
+      "command": "npm",
+      "args": ["run", "dev"],
+      "description": "Starts the local dev server (npm run dev). Useful to auto-start before connecting to the HTTP endpoint."
+    }
+  }
+}

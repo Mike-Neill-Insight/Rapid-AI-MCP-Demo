@@ -1,0 +1,8 @@
+{
+  "name": "Rapid AI MCP Demo (local)",
+  "transport": "streamable-http",
+  "url": "http://localhost:3100/mcp",
+  "accept": "application/json, text/event-stream",
+  "contentType": "application/json",
+  "description": "Local MCP Inspector config for Rapid AI MCP Demo. Start the server with `npm run dev` and open the Inspector with `npm run inspect`."
+}

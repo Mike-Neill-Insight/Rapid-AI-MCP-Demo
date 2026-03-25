@@ -31,7 +31,7 @@ const inputSchema = z.object({
     .array(
       z.object({
         productId: z.string().describe('Product ID (e.g., "prod-001")'),
-        quantity: z.number().int().min(1).describe('Quantity to order'),
+        quantity: z.coerce.number().int().min(1).describe('Quantity to order'),
       })
     )
     .min(1)
