@@ -51,13 +51,3 @@ ngrok http 3100
 ```
 
 After starting a tunnel, update `openapi.json` with your tunnel hostname.
-
-## Live Demo Tips
-
-If using this for a presentation:
-
-1. **Start everything before the demo**: server + tunnel, verify with health check
-2. **Pre-test all scenarios**: Run through the demo flow once to warm up sessions
-3. **Have a backup**: If the tunnel drops, you can still demo with MCP Inspector locally
-4. **Keep the server terminal visible**: The session logs show what's happening in real time
-5. **Use port 3100**: Port 3000 is commonly taken by other tools (we default to 3100 for this reason)
