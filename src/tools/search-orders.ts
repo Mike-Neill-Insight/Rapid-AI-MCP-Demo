@@ -86,12 +86,29 @@ export function registerSearchOrdersTool(server: McpServer) {
         .map(([k, v]) => `${k}=${v}`)
         .join(', ');
 
+      // Include the refund policy resource_link when results contain
+      // refund-related orders, so Copilot Studio can discover and read the
+      // policy to explain eligibility rules or next steps.
+      const hasRefundOrders = orders.some((o) =>
+        ['refund-pending', 'refunded'].includes(o.status)
+      );
+
       return {
         content: [
           {
             type: 'text' as const,
             text: `Found ${orders.length} order(s)${filters ? ` matching: ${filters}` : ''}:\n\n${orders.map((o) => `  ${o.id} | ${o.customerId} | ${o.status} | $${o.total.toFixed(2)} | ${o.itemCount} item(s)`).join('\n') || '  (none)'}`,
           },
+          ...(hasRefundOrders
+            ? [
+                {
+                  type: 'resource_link' as const,
+                  uri: 'policy://refund',
+                  name: 'Refund Policy',
+                  mimeType: 'text/markdown',
+                },
+              ]
+            : []),
         ],
         structuredContent: structured,
       };

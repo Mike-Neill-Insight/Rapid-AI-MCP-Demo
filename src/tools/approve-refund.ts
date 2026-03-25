@@ -66,7 +66,17 @@ export function registerApproveRefundTool(server: McpServer) {
       if ('error' in result) {
         return {
           isError: true,
-          content: [{ type: 'text' as const, text: result.error }],
+          content: [
+            { type: 'text' as const, text: result.error },
+            // Include the refund policy link even on errors so the AI can
+            // explain eligibility rules when a refund is rejected.
+            {
+              type: 'resource_link' as const,
+              uri: 'policy://refund',
+              name: 'Refund Policy',
+              mimeType: 'text/markdown',
+            },
+          ],
         };
       }
 
