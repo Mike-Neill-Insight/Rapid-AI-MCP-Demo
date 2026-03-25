@@ -14,6 +14,21 @@
  * │ approve-refund tool, which returns a resource_link to this URI      │
  * │ alongside its response. The AI can then read the full policy.       │
  * └─────────────────────────────────────────────────────────────────────┘
+ *
+ * MIME type: text/markdown
+ *
+ * MCP resources declare a MIME type so the client knows how to interpret
+ * the content. For a human-readable policy document, `text/markdown` is
+ * the natural choice — it tells the AI that the content is structured
+ * prose with headings, lists, and emphasis, not raw data to be parsed.
+ *
+ * Other common MIME types for MCP resources include:
+ * - application/json — structured data (e.g., the product catalog)
+ * - text/plain — unstructured text
+ * - text/html — rich formatted content
+ *
+ * Choosing the right MIME type helps the AI decide how to process and
+ * present the content to the user.
  */
 
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';

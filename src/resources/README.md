@@ -6,8 +6,10 @@ Think of them like files or documents — the AI reads them to understand backgr
 
 ## How Copilot Studio Discovers Resources
 
-> ⚠️ **Important**: Copilot Studio does **not** call `resources/list` to discover resources.
-> Instead, it discovers them through **`resource_link` items returned by tools**.
+> 💡 **Design note**: By design, Copilot Studio discovers resources through **`resource_link` items
+> returned by tools** — it does not call `resources/list` directly. This means every resource needs
+> a companion tool (or must be linked from an existing tool) to be visible to Copilot Studio.
+> MCP Inspector and VS Code *do* call `resources/list`, so resources still work there directly.
 
 The pattern works like this:
 
@@ -16,9 +18,9 @@ The pattern works like this:
 3. AI calls `resources/read` on that URI to get the full content
 4. AI uses the content to generate its response
 
-This means every resource needs a companion tool (or must be linked from an existing tool) to be visible to Copilot Studio. MCP Inspector and VS Code *do* call `resources/list`, so resources still work there directly.
+This means every resource needs a companion tool (or must be linked from an existing tool) to be visible to Copilot Studio.
 
-See: [Microsoft blog on MCP tools & resources](https://microsoft.github.io/mcscatblog/posts/mcp-tools-resources/)
+For the design rationale behind this pattern, see [Microsoft: MCP Tools & Resources](https://microsoft.github.io/mcscatblog/posts/mcp-tools-resources/).
 
 ## Resources in this project
 

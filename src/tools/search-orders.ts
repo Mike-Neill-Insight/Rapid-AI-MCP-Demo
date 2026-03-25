@@ -12,6 +12,20 @@
  * │ fill based on the user's natural language request.                  │
  * └─────────────────────────────────────────────────────────────────────┘
  *
+ * Input schema design notes:
+ *
+ * - The `status` field uses `z.enum(...)` rather than `z.string()`. This
+ *   is intentional: the enum values appear in the tool's JSON Schema,
+ *   which tells the AI exactly which statuses are valid. Without an enum,
+ *   the AI might guess "processing" or "completed" — values that don't
+ *   exist in our system. Enums eliminate that guesswork.
+ *
+ * - The `minTotal` / `maxTotal` fields use a `z.preprocess → z.coerce`
+ *   pattern because they are optional numbers. A naive `z.coerce.number()
+ *   .optional()` has a subtle bug: it coerces `null`, `""`, and `undefined`
+ *   to `0` instead of leaving them absent. The preprocess step intercepts
+ *   those "empty" values and maps them to `undefined` before coercion runs.
+ *
  * Tool annotations:
  * - readOnlyHint: true — search is a read-only operation
  */

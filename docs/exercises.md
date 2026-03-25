@@ -73,7 +73,7 @@
 4. If tier is `standard` and total > $5,000, return `isError: true` with a helpful message suggesting they upgrade to premium
 5. Test with MCP Inspector: try ordering 4× Security Audit - Advanced (`prod-005` at $1,499.99 × 4 = $5,999.96) for `cust-003` (standard tier)
 
-> **⚠️ Note**: The exercise originally suggested `prod-008` (Disaster Recovery Plan), but it's out of stock — the stock check fires before the tier check. Use `prod-005` instead.
+> **💡 Tip**: Use `prod-005` (Security Audit - Advanced) rather than `prod-008` (Disaster Recovery Plan) for this test. Product `prod-008` is out of stock in the sample data, and the stock validation fires before the tier check — so you'd get a stock error instead of the tier-limit error you're testing for.
 
 ---
 

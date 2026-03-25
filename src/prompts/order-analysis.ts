@@ -2,13 +2,25 @@
  * MCP Prompt: order-analysis
  *
  * ┌─────────────────────────────────────────────────────────────────────┐
- * │ This prompt demonstrates optional arguments. The status filter is   │
- * │ optional — if omitted, the prompt analyzes ALL orders.              │
+ * │ This prompt demonstrates OPTIONAL arguments and PROMPT REUSE.       │
  * │                                                                     │
- * │ This shows that MCP prompts can be flexible: the same prompt        │
- * │ template works for "analyze all orders" and "analyze only pending   │
- * │ orders" depending on what the user asks for.                        │
+ * │ The status filter is optional — if omitted, the prompt analyzes     │
+ * │ ALL orders. This means the same prompt template serves multiple     │
+ * │ use cases:                                                          │
+ * │   - "Analyze all orders"        → no args                          │
+ * │   - "Analyze pending orders"    → status: "pending"                │
+ * │   - "Analyze refund requests"   → status: "refund-pending"         │
+ * │                                                                     │
+ * │ This is a key benefit of MCP prompts over hardcoded instructions:   │
+ * │ a single prompt template can produce different analyses depending   │
+ * │ on the context, reducing duplication while ensuring consistent      │
+ * │ output format across all variations.                                │
  * └─────────────────────────────────────────────────────────────────────┘
+ *
+ * Compare with customer-summary.ts, which has a REQUIRED argument
+ * (customerId). Together these two prompts illustrate the full spectrum:
+ * prompts can require specific inputs, accept optional inputs, or take
+ * no inputs at all. The argsSchema shape determines the behavior.
  */
 
 import { z } from 'zod';

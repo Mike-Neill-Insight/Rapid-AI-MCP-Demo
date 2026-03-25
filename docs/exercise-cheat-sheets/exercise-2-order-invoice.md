@@ -2,15 +2,15 @@
 
 > ⚠️ **Spoiler**: Try the exercise in [exercises.md](../exercises.md) first!
 
-## Important: The `resource_link` pattern
+## Important: The `resource_link` Pattern
 
-The original exercise asks you to create a resource. But as we discovered during our red team review, **Copilot Studio doesn't call `resources/list`** — it discovers resources through `resource_link` items returned by tools.
+By design, Copilot Studio does **not** call `resources/list` to discover available resources. Instead, it discovers resources through **`resource_link` items returned by tools**. This means every resource needs a companion tool — or must be linked from an existing tool — to be visible to Copilot Studio.
 
-This solution includes both:
+This solution includes both pieces of the pattern:
 1. The **resource** (serves invoice data via `resources/read`)
 2. A **companion tool** that returns `resource_link` items pointing to invoices
 
-This is the complete pattern for making resources visible to Copilot Studio.
+Together, these form the complete resource discovery pattern. See [Microsoft's documentation on MCP tools & resources](https://microsoft.github.io/mcscatblog/posts/mcp-tools-resources/) for the design rationale behind this approach.
 
 ---
 

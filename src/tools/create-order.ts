@@ -11,10 +11,29 @@
  * │ operations — they can perform actions with side effects.            │
  * └─────────────────────────────────────────────────────────────────────┘
  *
+ * Validation pattern:
+ *
+ * This tool validates inputs in multiple stages before writing data:
+ *   1. Customer exists? (getCustomerById)
+ *   2. Each product exists? (getProductById)
+ *   3. Each product in stock? (product.inStock)
+ *
+ * Each validation returns `isError: true` with a descriptive message if
+ * it fails. This "fail fast" pattern is important: the AI sees the error
+ * content and can relay a helpful message to the user (e.g., "Product X
+ * is out of stock — would you like a substitute?"). Throwing an exception
+ * would produce a generic error that the AI can't act on.
+ *
+ * Input schema note:
+ * The `quantity` field uses `z.coerce.number()` instead of `z.number()`.
+ * AI models sometimes send numbers as strings in JSON (e.g., `"2"` instead
+ * of `2`). The `coerce` variant accepts both, silently converting strings
+ * to numbers before validation.
+ *
  * Tool annotations:
  * - readOnlyHint: false — this tool creates data
  * - destructiveHint: false — creating an order doesn't destroy existing data
- * - idempotentHint: false — calling twice creates two orders
+ * - idempotentHint: false — calling twice creates two separate orders
  */
 
 import { z } from 'zod';
