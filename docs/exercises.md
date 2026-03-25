@@ -3,6 +3,8 @@
 > **Prerequisites**: Completed the [Learning Path](../README.md#learning-path) through step 4 (Testing)
 >
 > **These exercises help you internalize MCP patterns by extending the demo server.**
+>
+> **Solutions available**: See [exercise-cheat-sheets/](exercise-cheat-sheets/) if you get stuck or want to compare your approach.
 
 ## Exercise 1: Add a New Tool — `get-order-details`
 
@@ -37,7 +39,10 @@
 5. Handle missing orders with `McpError` (code `-32002`)
 6. Register it in `src/server.ts`
 
-**Think about**: Why is this a Resource and not a Tool? Because an invoice is *read-only context* — a document the AI references, not an action it performs.
+**Bonus — Copilot Studio integration**:
+7. Create a companion tool `get-invoice` that returns a `resource_link` to `order://{orderId}/invoice`. Without this, Copilot Studio can't discover your resource (it doesn't call `resources/list`).
+
+**Think about**: Why is this a Resource and not a Tool? Because an invoice is *read-only context* — a document the AI references, not an action it performs. The companion tool is just the discovery mechanism.
 
 ---
 
@@ -66,7 +71,9 @@
 2. After building order items, calculate the total
 3. Look up the customer's tier
 4. If tier is `standard` and total > $5,000, return `isError: true` with a helpful message suggesting they upgrade to premium
-5. Test with MCP Inspector: try ordering a Disaster Recovery Plan ($2,999.99 × 2 = $5,999.98) for `cust-003` (standard tier)
+5. Test with MCP Inspector: try ordering 4× Security Audit - Advanced (`prod-005` at $1,499.99 × 4 = $5,999.96) for `cust-003` (standard tier)
+
+> **⚠️ Note**: The exercise originally suggested `prod-008` (Disaster Recovery Plan), but it's out of stock — the stock check fires before the tier check. Use `prod-005` instead.
 
 ---
 
