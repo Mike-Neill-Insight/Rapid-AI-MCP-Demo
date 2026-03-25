@@ -30,12 +30,16 @@ const inputSchema = z.object({
     .optional()
     .describe('Filter by customer ID (e.g., "cust-001")'),
   minTotal: z
-    .coerce.number()
-    .optional()
+    .preprocess(
+      (val) => (val === null || val === undefined || val === '' ? undefined : val),
+      z.coerce.number().optional()
+    )
     .describe('Minimum order total (inclusive)'),
   maxTotal: z
-    .coerce.number()
-    .optional()
+    .preprocess(
+      (val) => (val === null || val === undefined || val === '' ? undefined : val),
+      z.coerce.number().optional()
+    )
     .describe('Maximum order total (inclusive)'),
 });
 
