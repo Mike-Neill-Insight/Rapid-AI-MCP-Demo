@@ -5,7 +5,7 @@
     "description": "MCP Server for Copilot Studio — provides customer/order tools, resources, and prompts via Streamable HTTP transport.",
     "version": "1.0.0"
   },
-  "host": "YOUR-HOST-HERE.azurecontainerapps.io",
+  "host": "https://dqwq2t86-3100.usw2.devtunnels.ms",
   "basePath": "/",
   "schemes": ["https"],
   "consumes": ["application/json"],

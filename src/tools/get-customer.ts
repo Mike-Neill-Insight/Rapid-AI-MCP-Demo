@@ -105,11 +105,21 @@ export function registerGetCustomerTool(server: McpServer) {
       const result = { customer, recentOrders };
 
       return {
-        // content: human-readable text for display
+        // content: human-readable text + resource_link for follow-up
         content: [
           {
             type: 'text' as const,
             text: `Customer: ${customer.name} (${customer.company})\nTier: ${customer.tier}\nEmail: ${customer.email}\n\nRecent Orders (${recentOrders.length}):\n${recentOrders.map((o) => `  - ${o.id}: ${o.status} — $${o.total.toFixed(2)}`).join('\n')}`,
+          },
+          // resource_link: tells the AI that a detailed customer profile
+          // (with full order history, total spent, etc.) is available at
+          // this URI via resources/read. Copilot Studio discovers resources
+          // through these links — it does NOT call resources/list directly.
+          {
+            type: 'resource_link' as const,
+            uri: `customer://${customer.id}/profile`,
+            name: `${customer.name} — Full Profile`,
+            mimeType: 'application/json',
           },
         ],
         // structuredContent: typed data the AI can process programmatically

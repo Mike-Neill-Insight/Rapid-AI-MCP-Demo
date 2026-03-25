@@ -38,7 +38,7 @@
 │       │          │          │                    │
 │  ┌────▼────┐ ┌──▼───┐ ┌───▼────┐               │
 │  │  Tools  │ │ Res. │ │Prompts │               │
-│  │ 4 tools │ │  2   │ │   2    │               │
+│  │ 5 tools │ │  3   │ │   2    │               │
 │  └────┬────┘ └──┬───┘ └───┬────┘               │
 │       │         │         │                      │
 │  ┌────▼─────────▼─────────▼────┐                │
@@ -149,6 +149,36 @@ data: {
 - Session ID is a UUID, sent via `Mcp-Session-Id` header
 - Idle sessions are automatically cleaned up after 30 minutes
 - Clients can explicitly end sessions with `DELETE /mcp`
+
+## Resource Discovery (resource_link Pattern)
+
+Copilot Studio discovers MCP resources through **tool responses**, not by calling `resources/list`:
+
+```
+┌──────────────┐    tools/call        ┌──────────────────┐
+│  Copilot     │ ──────────────────►  │  list-products   │
+│  Studio      │                      │  tool            │
+│              │  ◄────────────────── │                  │
+│              │  { type: "text",     │  Returns summary │
+│              │    text: "8 prods"}  │  + resource_link │
+│              │  { type:             └──────────────────┘
+│              │    "resource_link",
+│              │    uri: "catalog://products" }
+│              │
+│              │    resources/read     ┌──────────────────┐
+│              │ ──────────────────►  │  product-catalog │
+│              │                      │  resource        │
+│              │  ◄────────────────── │                  │
+│              │  [full catalog JSON] │  Serves data     │
+└──────────────┘                      └──────────────────┘
+```
+
+**Why this pattern?**
+- Scalability: a server with 10,000 resources doesn't overwhelm the client on connect
+- Intent: the AI discovers resources *in context* (e.g., "here's a customer — their full profile is available here")
+- Compatibility: MCP Inspector and VS Code *do* call `resources/list`, so resources still work there
+
+See: [Microsoft blog on MCP tools & resources](https://microsoft.github.io/mcscatblog/posts/mcp-tools-resources/)
 
 ## Key Files
 

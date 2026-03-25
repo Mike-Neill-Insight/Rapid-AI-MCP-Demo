@@ -15,6 +15,12 @@
  * │ to understand what products are available — e.g., before helping    │
  * │ a user place an order, it can check prices and availability.        │
  * │                                                                     │
+ * │ HOW COPILOT STUDIO FINDS THIS RESOURCE:                             │
+ * │ Copilot Studio does NOT call resources/list. Instead, the           │
+ * │ list-products tool returns a resource_link to catalog://products.   │
+ * │ The AI then calls resources/read to get the full catalog.           │
+ * │ See: src/tools/list-products.ts                                     │
+ * │                                                                     │
  * │ This is a STATIC resource: it has a fixed URI (catalog://products)  │
  * │ and always returns the same catalog data. Compare this with the     │
  * │ customer-profile resource, which is DYNAMIC (URI varies per         │

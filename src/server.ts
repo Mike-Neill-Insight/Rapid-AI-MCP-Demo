@@ -41,10 +41,12 @@ import { registerGetCustomerTool } from './tools/get-customer.js';
 import { registerSearchOrdersTool } from './tools/search-orders.js';
 import { registerCreateOrderTool } from './tools/create-order.js';
 import { registerApproveRefundTool } from './tools/approve-refund.js';
+import { registerListProductsTool } from './tools/list-products.js';
 
 // Resource registrations
 import { registerProductCatalogResource } from './resources/product-catalog.js';
 import { registerCustomerProfileResource } from './resources/customer-profile.js';
+import { registerRefundPolicyResource } from './resources/refund-policy.js';
 
 // Prompt registrations
 import { registerCustomerSummaryPrompt } from './prompts/customer-summary.js';
@@ -102,10 +104,12 @@ function createMcpServer(): McpServer {
   registerSearchOrdersTool(server);
   registerCreateOrderTool(server);
   registerApproveRefundTool(server);
+  registerListProductsTool(server);
 
   // Resources — read-only data the AI can access
   registerProductCatalogResource(server);
   registerCustomerProfileResource(server);
+  registerRefundPolicyResource(server);
 
   // Prompts — reusable prompt templates
   registerCustomerSummaryPrompt(server);
@@ -286,9 +290,10 @@ app.listen(PORT, '127.0.0.1', () => {
 ║  MCP:       POST/GET/DELETE /mcp                             ║
 ║  Health:    GET /health                                      ║
 ║                                                              ║
-║  Tools:     get-customer, search-orders,                     ║
+║  Tools:     get-customer, search-orders, list-products    ║
 ║             create-order, approve-refund                     ║
-║  Resources: product-catalog, customer-profile                ║
+║  Resources: product-catalog, customer-profile,               ║
+║             refund-policy                                    ║
 ║  Prompts:   customer-summary, order-analysis                 ║
 ║                                                              ║
 ║  Next steps:                                                 ║

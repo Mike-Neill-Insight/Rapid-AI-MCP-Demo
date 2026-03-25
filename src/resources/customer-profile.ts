@@ -11,9 +11,15 @@
  * │ 1. The URI pattern (with {customerId} placeholder)                  │
  * │ 2. How to list available instances (the list callback)              │
  * │                                                                     │
- * │ When Copilot Studio discovers this resource, it knows it can        │
- * │ request any customer's profile by filling in the customerId.        │
- * │ The list callback tells it which customer IDs are valid.            │
+ * │ HOW COPILOT STUDIO FINDS THIS RESOURCE:                             │
+ * │ Copilot Studio does NOT call resources/list. Instead, the           │
+ * │ get-customer tool returns a resource_link pointing to               │
+ * │ customer://{id}/profile in its response. The AI then calls          │
+ * │ resources/read to get the full profile with complete order history. │
+ * │ See: src/tools/get-customer.ts                                      │
+ * │                                                                     │
+ * │ MCP Inspector and VS Code DO call the list callback, so this        │
+ * │ resource is also directly browsable in those clients.               │
  * │                                                                     │
  * │ If a client requests a nonexistent customer, we throw a             │
  * │ McpError with code -32002 (resource not found), which is the       │

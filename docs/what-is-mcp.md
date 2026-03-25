@@ -46,10 +46,18 @@ Resources are **read-only data** the AI uses for context. They have a URI and re
 
 ```
 User: "What products do we sell?"
-→ AI reads resource: catalog://products
+→ AI calls tool: list-products()
+→ Tool returns a resource_link: catalog://products
+→ AI calls resources/read on catalog://products
 → Resource returns: [{ name: "Cloud Hosting - Basic", price: 29.99 }, ...]
 → AI: "We offer 8 products across Hosting, Security, and Data Services..."
 ```
+
+> **Copilot Studio note**: Copilot Studio discovers resources through `resource_link`
+> items returned by tools — it does NOT call `resources/list` directly. Other clients
+> like MCP Inspector and VS Code do enumerate resources directly. See
+> [Microsoft's blog post](https://microsoft.github.io/mcscatblog/posts/mcp-tools-resources/)
+> for details on the resource_link pattern.
 
 ### 📝 Prompts — Reusable Prompt Templates
 

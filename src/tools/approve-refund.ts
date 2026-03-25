@@ -76,6 +76,15 @@ export function registerApproveRefundTool(server: McpServer) {
             type: 'text' as const,
             text: `✅ Refund approved for order ${result.id}.\n\nRefund amount: $${result.total.toFixed(2)}\nCustomer: ${result.customerId}\nPrevious status: refund-pending\nNew status: ${result.status}`,
           },
+          // resource_link: the refund policy document provides context
+          // about eligibility rules, time windows, and the approval process.
+          // Copilot Studio can follow this link to ground its response.
+          {
+            type: 'resource_link' as const,
+            uri: 'policy://refund',
+            name: 'Refund Policy',
+            mimeType: 'text/markdown',
+          },
         ],
         structuredContent: {
           orderId: result.id,
