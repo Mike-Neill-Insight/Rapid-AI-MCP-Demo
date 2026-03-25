@@ -15,6 +15,10 @@
  * │ a single prompt template can produce different analyses depending   │
  * │ on the context, reducing duplication while ensuring consistent      │
  * │ output format across all variations.                                │
+ * │                                                                     │
+ * │ ⚠️  Copilot Studio does NOT currently support MCP prompts — only    │
+ * │ tools and resources. This prompt is testable via MCP Inspector,     │
+ * │ VS Code, and other MCP clients that support prompts/get.            │
  * └─────────────────────────────────────────────────────────────────────┘
  *
  * Compare with customer-summary.ts, which has a REQUIRED argument

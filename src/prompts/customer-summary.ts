@@ -15,6 +15,10 @@
  * │ This prompt takes a customerId, fetches their data, and returns     │
  * │ a structured message asking the AI to summarize the customer's      │
  * │ account. The AI gets both the data AND the instructions in one go.  │
+ * │                                                                     │
+ * │ ⚠️  Copilot Studio does NOT currently support MCP prompts — only    │
+ * │ tools and resources. This prompt is testable via MCP Inspector,     │
+ * │ VS Code, and other MCP clients that support prompts/get.            │
  * └─────────────────────────────────────────────────────────────────────┘
  */
 

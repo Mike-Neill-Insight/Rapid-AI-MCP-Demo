@@ -61,6 +61,8 @@ User: "What products do we sell?"
 
 ### 📝 Prompts — Reusable Prompt Templates
 
+> ⚠️ **Copilot Studio note**: Copilot Studio does **not** currently support MCP prompts — only tools and resources. Prompts work with MCP Inspector, VS Code, Claude Desktop, and other MCP clients. They are included in this project because they are a core MCP primitive worth understanding.
+
 Prompts are **structured message templates** that guide the AI's response. They package data and instructions together.
 
 **When to use**: You want *consistent, repeatable AI interactions* — standard reports, analysis formats, response templates.
@@ -110,7 +112,7 @@ Microsoft Copilot Studio connects to MCP servers through **custom connectors**. 
 1. You deploy your MCP server (locally with a tunnel, or to Azure)
 2. You create an OpenAPI spec describing the `/mcp` endpoint
 3. You import the spec as a custom connector in Copilot Studio
-4. Copilot Studio discovers your tools/resources/prompts and uses them in conversations
+4. Copilot Studio discovers your tools and resources and uses them in conversations
 
 The key requirement is the `x-ms-agentic-protocol: mcp-streamable-1.0` marker in your OpenAPI spec — this tells Copilot Studio "this isn't a regular API, it speaks MCP."
 

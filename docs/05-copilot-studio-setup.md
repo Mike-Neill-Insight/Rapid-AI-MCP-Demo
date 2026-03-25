@@ -126,9 +126,9 @@ You need a custom connector so Copilot Studio can reach your MCP server. There a
 
 1. In Copilot Studio, refresh the **Test your agent** panel
 2. You may be prompted to **Connect** additional permissions — click through to authorize
-3. Try these prompts:
+3. Try these test messages:
 
-| Prompt | Expected tool | What to look for |
+| Test message | Expected tool | What to look for |
 |--------|---------------|------------------|
 | "Look up customer cust-001" | `get-customer` | Customer info + `resource_link` to full profile |
 | "What products do you sell?" | `list-products` | Product summary; agent may follow `resource_link` to full catalog |

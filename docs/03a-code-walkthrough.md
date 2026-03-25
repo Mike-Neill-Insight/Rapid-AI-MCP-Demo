@@ -313,6 +313,8 @@ A static resource that serves a plain-text markdown document rather than structu
 
 ## 12. Prompt Templates — `src/prompts/customer-summary.ts`
 
+> ⚠️ **Copilot Studio limitation**: Copilot Studio does **not** currently support MCP prompts — only tools and resources. The prompts in this project are testable via MCP Inspector and VS Code. They are included because prompts are a core MCP primitive worth understanding.
+
 Demonstrates prompts with required arguments.
 
 ### Key concepts

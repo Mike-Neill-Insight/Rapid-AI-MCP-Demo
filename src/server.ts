@@ -112,6 +112,8 @@ function createMcpServer(): McpServer {
   registerRefundPolicyResource(server);
 
   // Prompts — reusable prompt templates
+  // Note: Copilot Studio does not currently support MCP prompts.
+  // These work with MCP Inspector, VS Code, and other MCP clients.
   registerCustomerSummaryPrompt(server);
   registerOrderAnalysisPrompt(server);
 

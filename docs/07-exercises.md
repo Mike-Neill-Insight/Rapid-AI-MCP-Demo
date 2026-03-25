@@ -48,6 +48,8 @@
 
 ## Exercise 3: Add a New Prompt — `escalation-report`
 
+> 💡 **Note**: Copilot Studio does not currently support MCP prompts — only tools and resources. This exercise teaches prompt patterns that work with MCP Inspector, VS Code, and other MCP clients.
+
 **Goal**: Create a prompt that prepares an escalation report for orders that need attention.
 
 **What you'll practice**: Prompt templates, combining data from multiple sources, optional parameters.

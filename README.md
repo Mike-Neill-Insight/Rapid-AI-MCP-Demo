@@ -88,7 +88,7 @@ Suggested progression for a live demo or walkthrough:
 1. **Start server** → show health check, explain the transport
 2. **MCP Inspector** → connect, show tool/resource/prompt discovery
 3. **Resource read** → fetch product catalog (AI gets context)
-4. **Prompt** → use customer-summary (AI gets structured instructions)
+4. **Prompt** → use customer-summary in MCP Inspector (AI gets structured instructions) *(Note: prompts work in Inspector but not in Copilot Studio)*
 5. **Tool: read** → get-customer lookup (AI calls a function)
 6. **Tool: search** → search-orders with filters (parameterized query)
 7. **Tool: write** → create-order (demonstrates write capability)

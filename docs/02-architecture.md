@@ -150,6 +150,10 @@ data: {
 - Idle sessions are automatically cleaned up after 30 minutes
 - Clients can explicitly end sessions with `DELETE /mcp`
 
+> 💡 **Note on capabilities**: The initialize response advertises `prompts` as a capability. Copilot Studio
+> currently ignores this — it only uses tools and resources. Other clients (MCP Inspector, VS Code) do
+> support prompts.
+
 ## Resource Discovery (resource_link Pattern)
 
 Copilot Studio discovers MCP resources through **tool responses**, not by calling `resources/list`:

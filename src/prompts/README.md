@@ -1,5 +1,7 @@
 # MCP Prompts
 
+> ⚠️ **Copilot Studio limitation**: Copilot Studio does **not** currently support MCP prompts — only tools and resources ([source](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agent-extend-action-mcp)). Prompts are testable via MCP Inspector, VS Code, Claude Desktop, and other MCP clients. They are included in this project because prompts are a core MCP primitive worth understanding.
+
 **Prompts** are reusable prompt templates that guide the AI's response. They package data and instructions together.
 
 Think of them like stored procedures for conversations — consistent, repeatable AI interactions.

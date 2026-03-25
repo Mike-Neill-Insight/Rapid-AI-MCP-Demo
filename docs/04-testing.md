@@ -67,6 +67,8 @@ The Inspector will open in your browser.
 
 ### Testing Prompts
 
+> 💡 **Note**: Copilot Studio does not currently support MCP prompts. Prompts are testable in MCP Inspector and VS Code.
+
 1. Click the **Prompts** tab
 2. Click `customer-summary` → enter `customerId` = `cust-001`
 3. See the structured prompt with customer data and analysis instructions

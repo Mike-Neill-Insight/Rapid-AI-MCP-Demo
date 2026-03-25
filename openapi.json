@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Rapid AI MCP Demo",
-    "description": "MCP Server for Copilot Studio — provides customer/order tools, resources, and prompts via Streamable HTTP transport.",
+    "description": "MCP Server for Copilot Studio — provides customer/order tools and resources via Streamable HTTP transport. Also includes MCP prompts (supported by MCP Inspector and VS Code, not yet by Copilot Studio).",
     "version": "1.0.0"
   },
   "host": "https://dqwq2t86-3100.usw2.devtunnels.ms",
@@ -16,7 +16,7 @@
         "x-ms-agentic-protocol": "mcp-streamable-1.0",
         "operationId": "McpStreamableTransport",
         "summary": "MCP Streamable HTTP endpoint",
-        "description": "Handles MCP JSON-RPC requests via Streamable HTTP. Copilot Studio sends tool calls, resource reads, and prompt requests through this endpoint.",
+        "description": "Handles MCP JSON-RPC requests via Streamable HTTP. Copilot Studio sends tool calls and resource reads through this endpoint.",
         "parameters": [
           {
             "in": "header",
